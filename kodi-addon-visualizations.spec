@@ -30,9 +30,9 @@ Requires:	kodi-visualization-waveform
 Requires:	kodi-visualization-fishbmc
 Requires:	kodi-visualization-shadertoy
 Requires:	kodi-visualization-projectm
-Requires:	kodi-visualization-goom
-Requires:	kodi-visualization-starburst
-Requires:	kodi-visualization-vsxu
+#Requires:	kodi-visualization-goom
+#Requires:	kodi-visualization-starburst
+#Requires:	kodi-visualization-vsxu
 	
 %description    
 This package install all Kodi PVR addons.
