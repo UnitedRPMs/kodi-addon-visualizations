@@ -3,7 +3,7 @@
 Name:           kodi-addon-visualizations
 Version:        17.3
 Release:        1%{?dist}
-Summary:        Kodi PVR add-ons
+Summary:        Kodi visualizations add-ons
 
 Group:          Applications/Multimedia
 License:        GPLv3 and GPLv2+ and LGPLv2+ and MIT
@@ -35,7 +35,7 @@ Requires:	kodi-visualization-projectm
 #Requires:	kodi-visualization-vsxu
 	
 %description    
-This package install all Kodi PVR addons.
+This package install all Kodi visualizations addons.
 
 #----------
 
