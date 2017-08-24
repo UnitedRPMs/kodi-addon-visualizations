@@ -1,3 +1,4 @@
+%global debug_package %{nil}
 %global gitdate 20170524
 
 Name:           kodi-addon-visualizations
