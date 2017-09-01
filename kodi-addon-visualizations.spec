@@ -2,16 +2,16 @@
 %global gitdate 20170524
 
 Name:           kodi-addon-visualizations
-Version:        17.3
-Release:        1%{?dist}
+Version:        17.4
+Release:        2%{?dist}
 Summary:        Kodi visualizations add-ons
 
 Group:          Applications/Multimedia
 License:        GPLv3 and GPLv2+ and LGPLv2+ and MIT
 URL:            https://github.com/notspiff
-Source0:	https://github.com/UnitedRPMs/kodi-addon-visualization/releases/download/17/kodi-addon-visualizations-17-20170626.tar.xz
-Source1:        https://raw.githubusercontent.com/UnitedRPMs/kodi-addon-visualizations/master/kodi-addon-visualizations.sh
-Source2:        https://raw.githubusercontent.com/UnitedRPMs/kodi-addon-visualizations/master/kodi-addon-visualizations.txt
+Source0:	https://github.com/UnitedRPMs/kodi-addon-visualization/releases/download/17/%{name}-17-20170626.tar.xz
+Source1:        kodi-addon-visualizations.sh
+Source2:        kodi-addon-visualizations.txt
 
 BuildRequires:  cmake
 BuildRequires:  kodi-devel >= 17
@@ -211,6 +211,9 @@ find $RPM_BUILD_ROOT%{_datadir}/kodi/addons/ -type f -exec chmod 0644 {} \;
 #%{_datadir}/kodi/addons/visualization.vsxu/
 
 %changelog
+
+* Fri Sep 01 2017 David Vasquez <davidva at tutanota dot com> - 17.4-2
+- Rebuilt for Kodi cmake
 
 * Mon Jun 26 2017 David Vasquez <davidva at tutanota dot com> - 17.3-1
 - Initial build rpm
