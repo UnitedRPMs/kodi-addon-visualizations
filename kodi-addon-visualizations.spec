@@ -2,8 +2,8 @@
 %global gitdate 20170524
 
 Name:           kodi-addon-visualizations
-Version:        17.4
-Release:        2%{?dist}
+Version:        17.5
+Release:        1%{?dist}
 Summary:        Kodi visualizations add-ons
 
 Group:          Applications/Multimedia
@@ -211,6 +211,9 @@ find $RPM_BUILD_ROOT%{_datadir}/kodi/addons/ -type f -exec chmod 0644 {} \;
 #%{_datadir}/kodi/addons/visualization.vsxu/
 
 %changelog
+
+* Sun Oct 22 2017 Unitedrpms Project <unitedrpms AT protonmail DOT com> - 17.5-1
+- Updated to 17.5
 
 * Fri Sep 01 2017 David Vasquez <davidva at tutanota dot com> - 17.4-2
 - Rebuilt for Kodi cmake
