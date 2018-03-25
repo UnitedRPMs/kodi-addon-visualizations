@@ -1,22 +1,22 @@
 %global debug_package %{nil}
-%global gitdate 20170524
+%global gitdate 20180324
 
 Name:           kodi-addon-visualizations
-Version:        17.5
+Version:        18.0
 Release:        1%{?dist}
 Summary:        Kodi visualizations add-ons
 
 Group:          Applications/Multimedia
 License:        GPLv3 and GPLv2+ and LGPLv2+ and MIT
 URL:            https://github.com/notspiff
-Source0:	https://github.com/UnitedRPMs/kodi-addon-visualization/releases/download/17/%{name}-17-20170626.tar.xz
+Source0:	https://github.com/UnitedRPMs/kodi-addon-visualizations/releases/download/18/%{name}-18-%{gitdate}.tar.xz
 Source1:        kodi-addon-visualizations.sh
 Source2:        kodi-addon-visualizations.txt
 
 BuildRequires:  cmake
-BuildRequires:  kodi-devel >= 17
+BuildRequires:  kodi-devel >= 18
 BuildRequires:  platform-devel
-BuildRequires:  kodi-platform-devel
+BuildRequires:  kodi-platform-devel >= 18
 BuildRequires:	libprojectM-devel
 BuildRequires:  mesa-libGL-devel
 BuildRequires:  mesa-libGLES-devel
@@ -211,6 +211,9 @@ find $RPM_BUILD_ROOT%{_datadir}/kodi/addons/ -type f -exec chmod 0644 {} \;
 #%{_datadir}/kodi/addons/visualization.vsxu/
 
 %changelog
+
+* Wed Mar 21 2018 Unitedrpms Project <unitedrpms AT protonmail DOT com> - 18.0-1
+- Updated to 18.0
 
 * Sun Oct 22 2017 Unitedrpms Project <unitedrpms AT protonmail DOT com> - 17.5-1
 - Updated to 17.5

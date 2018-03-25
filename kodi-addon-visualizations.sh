@@ -2,14 +2,14 @@
 
 # New PVR add-ons repository for Kodi: https://github.com/notspiff
 
-tag_name_waveform=v1.1.0
-tag_name_fishbmc=v4.1.0
-tag_name_spectrum=v1.1.1
-tag_name_shadertoy=v1.1.5
-tag_name_projectm=v1.2.1
-tag_name_goom=v1.1.0
+tag_name_waveform=master
+tag_name_fishbmc=master
+tag_name_spectrum=master
+tag_name_shadertoy=master
+tag_name_projectm=master
+tag_name_goom=master
 tag_name_starburst=""
-tag_name_vsxu=v1.1.0
+tag_name_vsxu=master
 
 set -x
 
@@ -27,7 +27,7 @@ date=$(date +%Y%m%d)
 package=kodi-addon-visualizations
 branch=master
 name=kodi-addon-visualizations
-version=17
+version=18
 
 pushd ${tmp}
 mkdir -p ${name}/
