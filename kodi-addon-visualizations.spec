@@ -3,7 +3,7 @@
 
 Name:           kodi-addon-visualizations
 Version:        18.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Kodi visualizations add-ons
 
 Group:          Applications/Multimedia
@@ -211,6 +211,9 @@ find $RPM_BUILD_ROOT%{_datadir}/kodi/addons/ -type f -exec chmod 0644 {} \;
 #%{_datadir}/kodi/addons/visualization.vsxu/
 
 %changelog
+
+* Fri Apr 27 2018 Unitedrpms Project <unitedrpms AT protonmail DOT com> 18.0-2  
+- Automatic Mass Rebuild
 
 * Wed Mar 21 2018 Unitedrpms Project <unitedrpms AT protonmail DOT com> - 18.0-1
 - Updated to 18.0
