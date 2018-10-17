@@ -13,6 +13,7 @@ Source0:	https://github.com/UnitedRPMs/kodi-addon-visualizations/releases/downlo
 Source1:        kodi-addon-visualizations.sh
 Source2:        kodi-addon-visualizations.txt
 
+BuildRequires:  gcc-c++
 BuildRequires:  cmake
 BuildRequires:  kodi-devel >= 18
 BuildRequires:  platform-devel
