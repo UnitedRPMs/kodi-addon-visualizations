@@ -5,3 +5,4 @@ SPECS/*
 SRPMS/*
 kodi-addon-visualizations*.tar.xz
 .directory
+*.rpm

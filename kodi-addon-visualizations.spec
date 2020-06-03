@@ -3,7 +3,7 @@
 
 Name:           kodi-addon-visualizations
 Version:        18.0
-Release:        8%{?dist}
+Release:        9%{?dist}
 Epoch:		1
 Summary:        Kodi visualizations add-ons
 
@@ -16,7 +16,7 @@ Source2:        kodi-addon-visualizations.txt
 
 BuildRequires:  gcc-c++ 
 BuildRequires:  cmake
-BuildRequires:  kodi-devel >= 18
+BuildRequires:  kodi-devel >= 18.7.1
 BuildRequires:  platform-devel
 BuildRequires:  kodi-platform-devel >= 18
 BuildRequires:	libprojectM-devel
@@ -256,6 +256,9 @@ find $RPM_BUILD_ROOT%{_datadir}/kodi/addons/ -type f -exec chmod 0644 {} \;
 #%{_datadir}/kodi/addons/visualization.vsxu/
 
 %changelog
+
+* Tue Jun 02 2020 Unitedrpms Project <unitedrpms AT protonmail DOT com> 18.0-9  
+- Rebuilt
 
 * Sun Feb 03 2019 Unitedrpms Project <unitedrpms AT protonmail DOT com> 18.0-8  
 - Updated to current stable Leia 
