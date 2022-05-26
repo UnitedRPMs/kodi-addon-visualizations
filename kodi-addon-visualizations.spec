@@ -1,20 +1,29 @@
 %global debug_package %{nil}
-%global gitdate 20190204 
+%global gitdate 20220525
+
+# Use old cmake macro
+%global __cmake_in_source_build 1
+%global _hardened_build 1
+%global _lto_cflags %{nil}
+
 
 Name:           kodi-addon-visualizations
-Version:        18.0
-Release:        9%{?dist}
+Version:        19.0
+Release:        7%{?dist}
 Epoch:		1
 Summary:        Kodi visualizations add-ons
 
 Group:          Applications/Multimedia
 License:        GPLv3 and GPLv2+ and LGPLv2+ and MIT
 URL:            https://github.com/notspiff
-Source0:	https://github.com/UnitedRPMs/kodi-addon-visualizations/releases/download/18/%{name}-18-%{gitdate}.tar.xz
+Source0:	https://github.com/UnitedRPMs/kodi-addon-visualizations/releases/download/19/%{name}-19-%{gitdate}.tar.xz
 Source1:        kodi-addon-visualizations.sh
 Source2:        kodi-addon-visualizations.txt
 
 BuildRequires:  gcc-c++ 
+%if 0%{?fedora} >= 36
+BuildRequires:	annobin-plugin-gcc
+%endif
 BuildRequires:  cmake
 BuildRequires:  kodi-devel >= 18.7.1
 BuildRequires:  platform-devel
@@ -26,6 +35,9 @@ BuildRequires:  mesa-libEGL-devel
 BuildRequires:	mesa-libGLU-devel
 BuildRequires:	autoconf
 BuildRequires:	automake freeglut-devel
+BuildRequires: pkgconfig(gl)
+BuildRequires: pkgconfig(glm)
+BuildRequires: pkgconfig(p8-platform)
 #BuildRequires:	nasm
 
 Requires:	kodi >= 18
@@ -46,7 +58,7 @@ This package install all Kodi visualizations addons.
 #----------
 
 %package -n     kodi-visualization-spectrum
-Version:	2.0.3
+Version:	19.0.1
 Summary:        Spectrum visualizer for Kodi
 Group:          Applications/Multimedia
 Requires:       kodi  >= 18.0
@@ -58,7 +70,7 @@ Spectrum visualizer for Kodi.
 #----------
 
 %package -n     kodi-visualization-waveform
-Version:	2.0.1
+Version:	19.0.2
 Summary:        Waveform visualizer for Kodi
 Group:          Applications/Multimedia
 Requires:       kodi  >= 18.0
@@ -69,7 +81,7 @@ Waveform visualizer for Kodi.
 #----------
 
 %package -n     kodi-visualization-fishbmc
-Version:	4.1.0
+Version:	19.0.1
 Summary:        Fishbmc visualizer for Kodi
 Group:          Applications/Multimedia
 Requires:       kodi  >= 18.0
@@ -80,7 +92,7 @@ Fishbmc visualizer for Kodi.
 #----------
 
 %package -n     kodi-visualization-shadertoy
-Version:	1.1.9
+Version:	19.1.2
 Summary:        shadertoy visualizer for Kodi
 Group:          Applications/Multimedia
 Requires:       kodi  >= 18.0
@@ -101,14 +113,14 @@ shadertoy visualizer for Kodi.
 
 #----------
 # FIX ME
-#%package -n     kodi-visualization-projectm
-#Version:	2.1.0
-#Summary:        projectm visualizer for Kodi
-#Group:          Applications/Multimedia
-#Requires:       kodi  >= 18.0
+%package -n     kodi-visualization-projectm
+Version:	19.0.2
+Summary:        projectm visualizer for Kodi
+Group:          Applications/Multimedia
+Requires:       kodi  >= 18.0
 
-#%description -n kodi-visualization-projectm
-#projectm visualizer for Kodi.
+%description -n kodi-visualization-projectm
+projectm visualizer for Kodi.
 
 #----------
 
@@ -165,7 +177,7 @@ rm -rf visualization.goom/
 rm -rf visualization.starburst/
 rm -rf visualization.vsxu/
 rm -rf visualization.milkdrop/
-rm -rf visualization.projectm/
+#rm -rf visualization.projectm/
 rm -rf visualization.vortex/
 #%endif
 
@@ -177,7 +189,7 @@ while IFS= read -r line; do
         # display $line or do something with $line
     mkdir -p $line/build/ 
 pushd %{_builddir}/kodi-addon-visualizations/$line/build
-cmake -DCMAKE_INSTALL_PREFIX=%{_prefix} -DCMAKE_INSTALL_LIBDIR=%{_libdir}/kodi -DBUILD_SHARED_LIBS=1 ..
+cmake -DCMAKE_INSTALL_PREFIX=%{_prefix} -DCMAKE_INSTALL_LIBDIR=%{_libdir}/kodi -DBUILD_SHARED_LIBS=1  ..
 make 
 popd  
 done <"$file"
@@ -234,9 +246,9 @@ find $RPM_BUILD_ROOT%{_datadir}/kodi/addons/ -type f -exec chmod 0644 {} \;
 #%{_datadir}/kodi/addons/visualization.vortex/
 
 # FIXME
-#%files -n kodi-visualization-projectm
-#%{_libdir}/kodi/addons/visualization.projectm/
-#%{_datadir}/kodi/addons/visualization.projectm/
+%files -n kodi-visualization-projectm
+%{_libdir}/kodi/addons/visualization.projectm/
+%{_datadir}/kodi/addons/visualization.projectm/
 
 #%files -n kodi-visualization-milkdrop
 #%{_libdir}/kodi/addons/visualization.milkdrop/
@@ -256,6 +268,9 @@ find $RPM_BUILD_ROOT%{_datadir}/kodi/addons/ -type f -exec chmod 0644 {} \;
 #%{_datadir}/kodi/addons/visualization.vsxu/
 
 %changelog
+
+* Wed May 25 2022 Unitedrpms Project <unitedrpms AT protonmail DOT com> 19.0-7  
+- Updated to 19.0
 
 * Tue Jun 02 2020 Unitedrpms Project <unitedrpms AT protonmail DOT com> 18.0-9  
 - Rebuilt
